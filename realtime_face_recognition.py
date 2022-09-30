@@ -260,7 +260,7 @@ def realtime_face_recognition(db_path,
                     w = detected_face[2]; h = detected_face[3]
                     
         
-                    # cv2.rectangle(img, (x,y), (x+w,y+h), (67,67,67), 1) #draw rectangle to main image
+                    cv2.rectangle(img, (x,y), (x+w,y+h), (67,67,67), 1) #draw rectangle to main image
         
                                 #-------------------------------
         
@@ -364,11 +364,6 @@ def realtime_face_recognition(db_path,
                                                 display_img = None
                                                 detect_indx = False
             try:
-                if emo_score_best > smile_sensitivity:
-                    cv2.putText(img,"LUTFEN IYICE GULUMSEYINIZ :) ", (90,400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
-                else:
-                    cv2.putText(img,"TESEKKURLER :)", (112,400), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
-
                 if detect_indx:
                     # try:      
                                 overlay = img.copy()
@@ -521,6 +516,10 @@ def realtime_face_recognition(db_path,
                                                                 # #connect face and text
                                                                 # cv2.line(img,(x+int(w/2), y), (x+3*int(w/4), y-int(pivot_img_size/2)),(67,67,67),1)
                                                                 # cv2.line(img, (x+3*int(w/4), y-int(pivot_img_size/2)), (x+w, y - int(pivot_img_size/2)), (67,67,67),1)
+                if emo_score_best > smile_sensitivity:
+                    cv2.putText(img,"PLEASE SMILE A LOT :) ", (136,400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
+                else:
+                    cv2.putText(img,"THANKS :)", (200,400), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
             except Exception as err:
                         print(str(err))
             
